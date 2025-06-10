@@ -57,7 +57,7 @@
   
   /* Wedding Theme Variables */
   --wedding-primary: #e83e8c;
-  --wedding-secondary: #d4af37;
+  --wedding-secondary: #FFD700;
   --wedding-accent: #8e44ad;
   --wedding-light: #fff9fb;
   --wedding-dark: #4a235a;
@@ -208,6 +208,58 @@
       rgba(212, 175, 55, 0.6)
     );
   }
+  
+  /* Mobile-specific utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  .safe-area-padding {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .h-safe-area-inset-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+  
+  /* Enhanced backdrop blur for better mobile performance */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Smooth transitions for better mobile feel */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Custom focus styles for better accessibility */
+  .focus-wedding {
+    @apply focus:outline-none focus:ring-2 focus:ring-wedding-primary focus:ring-offset-2;
+  }
+  
+  /* Better button press feedback */
+  .btn-press {
+    @apply active:scale-95 transition-transform duration-100;
+  }
 }
 
 /* Animations */
@@ -219,6 +271,17 @@
   100% {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
   }
 }
 
@@ -246,8 +309,56 @@
   }
 }
 
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 .animate-petal-fall {
-  animation: petal-fall 8s linear infinite;
+  animation: petal-fall 12s linear infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 4s ease-in-out infinite;
 }
 
 .animate-button-press {
@@ -256,6 +367,26 @@
 
 .animate-shake {
   animation: shake 0.6s ease-in-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-in {
+  animation-fill-mode: forwards;
+}
+
+.slide-in-from-bottom-2 {
+  animation: slide-in-from-bottom 0.3s ease-out;
+}
+
+.zoom-in {
+  animation: zoom-in 0.2s ease-out;
+}
+
+.fade-in {
+  animation: fade-in-up 0.3s ease-out;
 }
 
 /* Custom scrollbar */
@@ -274,4 +405,22 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wedding-accent);
+}
+
+/* Additional mobile enhancement utilities */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
