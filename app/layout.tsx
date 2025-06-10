@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "缘份婚庆 | Premium Wedding Planning Services",
     description: "Create unforgettable lifetime moments with our premium wedding planning services since 2012",
-    url: "https://yuanfen-wedding.github.io",
+    url: "https://joneyxiao.github.io/yuanfen",
     siteName: "Yuanfen Wedding Planning",
     images: [
       {

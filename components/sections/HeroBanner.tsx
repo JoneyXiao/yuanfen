@@ -6,11 +6,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, Sparkles, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PhoneIcon } from "@/components/ui/icons/iconify-icons";
+import prefix from "@/lib/prefix";
 
 const HeroBanner = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState("/home-bg.avif");
+  const [imageSrc, setImageSrc] = useState(`${prefix}/home-bg.avif`);
   const [isClient, setIsClient] = useState(false);
   const [textAnimated, setTextAnimated] = useState(false);
 
@@ -65,9 +66,9 @@ const HeroBanner = () => {
             setImageError(false);
           }}
           onError={() => {
-            if (imageSrc === "/home-bg.avif") {
+            if (imageSrc === `${prefix}/home-bg.avif`) {
               // Try fallback to JPEG
-              setImageSrc("/home-bg.jpg");
+              setImageSrc(`${prefix}/home-bg.jpg`);
               setImageError(false);
               console.warn('AVIF image failed to load, trying JPEG fallback');
             } else {

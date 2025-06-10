@@ -35,7 +35,7 @@ const Footer = () => {
     { icon: Phone, text: "138-0013-8000", href: "tel:13800138000", label: "24小时咨询热线" },
     { icon: MessageCircle, text: "yuanfen_hunqing", href: "#", label: "微信号" },
     { icon: Mail, text: "info@yuanfen-wedding.com", href: "mailto:info@yuanfen-wedding.com", label: "邮箱地址" },
-    { icon: MapPin, text: "北京市朝阳区三里屯SOHO", href: "#", label: "公司地址" }
+    { icon: MapPin, text: "湖南省衡东县吴集镇", href: "#", label: "公司地址" }
   ];
 
   const scrollToSection = (sectionId: string) => {
