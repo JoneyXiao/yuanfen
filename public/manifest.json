@@ -1,0 +1,58 @@
+{
+  "name": "缘份婚庆 - Yuanfen Wedding Planning",
+  "short_name": "缘份婚庆",
+  "description": "Premium wedding planning services since 2012. Create unforgettable lifetime moments with our professional team.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff9fb",
+  "theme_color": "#e83e8c",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "zh-CN",
+  "categories": ["lifestyle", "business"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "联系我们",
+      "short_name": "联系",
+      "description": "Direct contact for wedding consultation",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "服务项目", 
+      "short_name": "服务",
+      "description": "View our wedding services",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+} 
