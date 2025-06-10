@@ -55,13 +55,26 @@ jobs:
       - name: Debug environment variables
         run: |
           echo "PAGES_BASE_PATH: '${{ steps.setup_pages.outputs.base_path }}'"
+          echo "NODE_ENV: '${{ env.NODE_ENV }}'"
           echo "GITHUB_ACTIONS: '${{ env.GITHUB_ACTIONS }}'"
+          echo "Repository: ${{ github.repository }}"
+          echo "Base URL from configure-pages: ${{ steps.setup_pages.outputs.base_url }}"
 
       - name: Build with Next.js
         run: npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
-          GITHUB_ACTIONS: true
+
+      - name: Debug build output
+        run: |
+          echo "=== Contents of ./out directory ==="
+          ls -la ./out/
+          echo "=== Checking for images in out directory ==="
+          find ./out -name "*.jpg" -o -name "*.avif" -o -name "*.png" | head -10
+          echo "=== Sample HTML content to check asset paths ==="
+          if [ -f "./out/index.html" ]; then
+            grep -o 'src="[^"]*"' ./out/index.html | head -5
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

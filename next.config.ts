@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
