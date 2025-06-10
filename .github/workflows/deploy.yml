@@ -52,10 +52,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
+      - name: Debug environment variables
+        run: |
+          echo "PAGES_BASE_PATH: '${{ steps.setup_pages.outputs.base_path }}'"
+          echo "GITHUB_ACTIONS: '${{ env.GITHUB_ACTIONS }}'"
+
       - name: Build with Next.js
         run: npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
+          GITHUB_ACTIONS: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
