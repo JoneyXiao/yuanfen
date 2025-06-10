@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Play, Pause, Heart, Eye, Calendar, Maximize, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { YuanfenIcon } from "@/components/ui/icons/iconify-icons";
+import prefix from "@/lib/prefix";
 
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,48 +22,48 @@ const Gallery = () => {
 
   const galleryItems = useMemo(() => [
     {
-      image: "/garden-wedding.avif",
-      fallbackImage: "/garden-wedding.jpg",
+      image: `${prefix}/garden-wedding.avif`,
+      fallbackImage: `${prefix}/garden-wedding.jpg`,
       title: "Garden Wedding",
       date: "2023.05.20",
       description: "户外花园主题婚礼",
       details: "在绿意盎然的花园中举办的浪漫婚礼，鲜花装饰与自然景观完美融合"
     },
     {
-      image: "/wedding-ring.avif",
-      fallbackImage: "/wedding-ring.jpg",
+      image: `${prefix}/wedding-ring.avif`,
+      fallbackImage: `${prefix}/wedding-ring.jpg`,
       title: "Church Ceremony",
       date: "2023.04.15",
       description: "神圣教堂婚礼仪式",
       details: "庄严神圣的教堂婚礼，见证新人在上帝面前许下永恒誓言"
     },
     {
-      image: "/beach-wedding.jpg",
-      fallbackImage: "/beach-wedding.jpg",
+      image: `${prefix}/beach-wedding.jpg`,
+      fallbackImage: `${prefix}/beach-wedding.jpg`,
       title: "Beach Wedding",
       date: "2023.06.08",
       description: "浪漫海滩婚礼",
       details: "在碧海蓝天下举行的海滨婚礼，浪漫与自由并存的完美仪式"
     },
     {
-      image: "/grand-ballroom-wedding.jpeg",
-      fallbackImage: "/grand-ballroom-wedding.jpeg",
+      image: `${prefix}/grand-ballroom-wedding.jpeg`,
+      fallbackImage: `${prefix}/grand-ballroom-wedding.jpeg`,
       title: "Grand Ballroom",
       date: "2023.03.25",
       description: "豪华酒店宴会厅",
       details: "奢华典雅的宴会厅婚礼，金碧辉煌的装饰营造完美仪式感"
     },
     {
-      image: "/villa-wedding.avif",
-      fallbackImage: "/villa-wedding.jpg",
+      image: `${prefix}/villa-wedding.avif`,
+      fallbackImage: `${prefix}/villa-wedding.jpg`,
       title: "Villa Wedding",
       date: "2023.07.12",
       description: "别墅庭院婚礼",
       details: "私密温馨的别墅庭院婚礼，亲朋好友齐聚共同见证幸福时刻"
     },
     {
-      image: "/traditional-chinese-wedding.jpeg",
-      fallbackImage: "/traditional-chinese-wedding.jpeg",
+      image: `${prefix}/traditional-chinese-wedding.jpeg`,
+      fallbackImage: `${prefix}/traditional-chinese-wedding.jpeg`,
       title: "Traditional Chinese",
       date: "2023.08.18",
       description: "中式传统婚礼",

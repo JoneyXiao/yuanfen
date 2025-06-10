@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { YuanfenIcon } from "@/components/ui/icons/iconify-icons";
 import Image from "next/image";
+import prefix from "@/lib/prefix";
 
 const About = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -81,21 +82,21 @@ const About = () => {
       position: "首席婚礼策划师",
       experience: "10年经验",
       specialty: "户外婚礼策划",
-      avatar: "/avatar-001.avif"
+      avatar: `${prefix}/avatar-001.avif`
     },
     {
       name: "王浩然",
       position: "创意总监",
       experience: "8年经验", 
       specialty: "主题婚礼设计",
-      avatar: "/avatar-002.avif"
+      avatar: `${prefix}/avatar-002.avif`
     },
     {
       name: "张美琳",
       position: "客户服务经理",
       experience: "6年经验",
       specialty: "客户关系管理",
-      avatar: "/avatar-003.avif"
+      avatar: `${prefix}/avatar-003.avif`
     }
   ];
 
@@ -171,7 +172,7 @@ const About = () => {
           <div className="relative group">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 relative">
               <Image
-                src="/garden-wedding.jpg"
+                src={`${prefix}/garden-wedding.jpg`}
                 alt="Our Wedding Planning Team"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
