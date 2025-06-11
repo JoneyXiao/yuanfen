@@ -6,30 +6,58 @@ export default function BrowserCheck() {
   const [isUnsupported, setIsUnsupported] = useState(false);
 
   useEffect(() => {
-    // Simple browser detection for very old browsers
-    const userAgent = window.navigator.userAgent;
-    const isOldSafari = /Safari/.test(userAgent) && /Version\/([0-9]+)/.test(userAgent) && 
-                       parseInt(userAgent.match(/Version\/([0-9]+)/)?.[1] || '0') < 12;
-    const isOldChrome = /Chrome/.test(userAgent) && /Chrome\/([0-9]+)/.test(userAgent) && 
-                       parseInt(userAgent.match(/Chrome\/([0-9]+)/)?.[1] || '0') < 64;
-    const isOldFirefox = /Firefox/.test(userAgent) && /Firefox\/([0-9]+)/.test(userAgent) && 
-                        parseInt(userAgent.match(/Firefox\/([0-9]+)/)?.[1] || '0') < 67;
-
-    if (isOldSafari || isOldChrome || isOldFirefox) {
-      setIsUnsupported(true);
-    }
-
-    // Check for basic JavaScript features
     try {
-      // Test for ES6 features
-      const arrow = () => true;
+      // Simple browser detection for very old browsers
+      const userAgent = window.navigator.userAgent;
+      
+      // Check for very old browsers first
+      const isIE = /MSIE|Trident/.test(userAgent);
+      if (isIE) {
+        setIsUnsupported(true);
+        return;
+      }
+
+      // Extract version numbers more safely
+      let isOldBrowser = false;
+      
+      if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+        const safariMatch = userAgent.match(/Version\/(\d+)/);
+        if (safariMatch && parseInt(safariMatch[1]) < 12) {
+          isOldBrowser = true;
+        }
+      }
+      
+      if (userAgent.includes('Chrome')) {
+        const chromeMatch = userAgent.match(/Chrome\/(\d+)/);
+        if (chromeMatch && parseInt(chromeMatch[1]) < 64) {
+          isOldBrowser = true;
+        }
+      }
+      
+      if (userAgent.includes('Firefox')) {
+        const firefoxMatch = userAgent.match(/Firefox\/(\d+)/);
+        if (firefoxMatch && parseInt(firefoxMatch[1]) < 67) {
+          isOldBrowser = true;
+        }
+      }
+
+      // Check for basic JavaScript features
       const hasPromise = typeof Promise !== 'undefined';
       const hasFetch = typeof fetch !== 'undefined';
+      const hasArrowFunctions = (() => {
+        try {
+          eval('(() => {})');
+          return true;
+        } catch {
+          return false;
+        }
+      })();
       
-      if (!arrow() || !hasPromise || !hasFetch) {
+      if (isOldBrowser || !hasPromise || !hasFetch || !hasArrowFunctions) {
         setIsUnsupported(true);
       }
     } catch {
+      // If any error occurs in detection, assume unsupported
       setIsUnsupported(true);
     }
   }, []);
