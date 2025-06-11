@@ -3,6 +3,53 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Browser compatibility fallbacks */
+@supports not (backdrop-filter: blur(10px)) {
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-md,
+  .glass {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+/* OKLCH color fallbacks for older browsers */
+@supports not (color: oklch(0.5 0.5 180)) {
+  :root {
+    --destructive: #dc2626;
+    --chart-1: #3b82f6;
+    --chart-2: #10b981;
+    --chart-3: #f59e0b;
+    --chart-4: #ef4444;
+    --chart-5: #8b5cf6;
+    --sidebar: #f8fafc;
+    --sidebar-foreground: #1e293b;
+    --sidebar-primary: #334155;
+    --sidebar-primary-foreground: #f8fafc;
+    --sidebar-accent: #f1f5f9;
+    --sidebar-accent-foreground: #334155;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #6366f1;
+  }
+
+  .dark {
+    --destructive: #ef4444;
+    --chart-1: #6366f1;
+    --chart-2: #22d3ee;
+    --chart-3: #f59e0b;
+    --chart-4: #f97316;
+    --chart-5: #a855f7;
+    --sidebar: #334155;
+    --sidebar-foreground: #f8fafc;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #f8fafc;
+    --sidebar-accent: #475569;
+    --sidebar-accent-foreground: #f8fafc;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+    --sidebar-ring: #8b5cf6;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -67,199 +114,135 @@
   --font-body: 'Inter', 'HarmonyOS Sans SC', sans-serif;
   
   --background: #ffffff;
-  --foreground: #4a235a;
+  --foreground: var(--wedding-dark);
   --card: #ffffff;
-  --card-foreground: #4a235a;
+  --card-foreground: var(--wedding-dark);
   --popover: #ffffff;
-  --popover-foreground: #4a235a;
-  --primary: #e83e8c;
+  --popover-foreground: var(--wedding-dark);
+  --primary: var(--wedding-primary);
   --primary-foreground: #ffffff;
-  --secondary: #FFD700;
+  --secondary: var(--wedding-secondary);
   --secondary-foreground: #ffffff;
-  --muted: #fff9fb;
+  --muted: var(--wedding-light);
   --muted-foreground: #666666;
-  --accent: #8e44ad;
+  --accent: var(--wedding-accent);
   --accent-foreground: #ffffff;
-  /* Fallback for oklch colors */
-  --destructive: #dc2626;
+  --destructive: oklch(0.577 0.245 27.325);
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #e83e8c;
-  /* Fallback chart colors */
-  --chart-1: #3b82f6;
-  --chart-2: #10b981;
-  --chart-3: #f59e0b;
-  --chart-4: #ef4444;
-  --chart-5: #8b5cf6;
-  /* Fallback sidebar colors */
-  --sidebar: #f8fafc;
-  --sidebar-foreground: #1e293b;
-  --sidebar-primary: #334155;
-  --sidebar-primary-foreground: #f8fafc;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #334155;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #64748b;
-}
-
-/* Support for modern oklch colors where available */
-@supports (color: oklch(0.5 0.2 180)) {
-  :root {
-    --destructive: oklch(0.577 0.245 27.325);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
-    --sidebar: oklch(0.984 0.003 247.858);
-    --sidebar-foreground: oklch(0.129 0.042 264.695);
-    --sidebar-primary: oklch(0.208 0.042 265.755);
-    --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-    --sidebar-accent: oklch(0.968 0.007 247.896);
-    --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-    --sidebar-border: oklch(0.929 0.013 255.508);
-    --sidebar-ring: oklch(0.704 0.04 256.788);
-  }
+  --ring: var(--wedding-primary);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
 .dark {
-  --background: #4a235a;
+  --background: var(--wedding-dark);
   --foreground: #ffffff;
-  --card: #4a235a;
+  --card: var(--wedding-dark);
   --card-foreground: #ffffff;
-  --popover: #4a235a;
+  --popover: var(--wedding-dark);
   --popover-foreground: #ffffff;
-  --primary: #e83e8c;
+  --primary: var(--wedding-primary);
   --primary-foreground: #ffffff;
-  --secondary: #FFD700;
+  --secondary: var(--wedding-secondary);
   --secondary-foreground: #ffffff;
   --muted: #2d1b69;
   --muted-foreground: #cccccc;
-  --accent: #8e44ad;
+  --accent: var(--wedding-accent);
   --accent-foreground: #ffffff;
-  /* Fallback for oklch colors */
-  --destructive: #ef4444;
+  --destructive: oklch(0.704 0.191 22.216);
   --border: #4a235a;
   --input: #4a235a;
-  --ring: #e83e8c;
-  /* Fallback chart colors for dark mode */
-  --chart-1: #6366f1;
-  --chart-2: #22c55e;
-  --chart-3: #f59e0b;
-  --chart-4: #ef4444;
-  --chart-5: #a855f7;
-}
-
-/* Support for modern oklch colors in dark mode where available */
-@supports (color: oklch(0.5 0.2 180)) {
-  .dark {
-    --destructive: oklch(0.704 0.191 22.216);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.208 0.042 265.755);
-    --sidebar-foreground: oklch(0.984 0.003 247.858);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-    --sidebar-accent: oklch(0.279 0.041 260.031);
-    --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.551 0.027 264.364);
-  }
+  --ring: var(--wedding-primary);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
 @layer base {
   * {
-    @apply border-border;
-    /* Fallback for browsers that don't support outline-ring/50 */
-    outline-color: rgba(232, 62, 140, 0.5);
-  }
-  
-  /* Support modern outline where available */
-  @supports (outline-color: var(--ring)) {
-    * {
-      @apply outline-ring/50;
-    }
+    @apply border-border outline-ring/50;
   }
   
   html {
     scroll-behavior: smooth;
   }
   
-  /* Fallback for browsers that don't support CSS scroll-behavior */
-  @supports not (scroll-behavior: smooth) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
-  
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body), 'Inter', 'HarmonyOS Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
   }
   
   .font-header {
-    font-family: var(--font-header), 'Noto Serif SC', serif, -apple-system, BlinkMacSystemFont;
+    font-family: var(--font-header);
   }
   
   .font-body {
-    font-family: var(--font-body), 'Inter', 'HarmonyOS Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
   }
 }
 
 @layer utilities {
   .text-wedding-primary {
     color: var(--wedding-primary);
-    /* Fallback for browsers that don't support CSS custom properties */
-    color: #e83e8c;
   }
   
   .text-wedding-secondary {
     color: var(--wedding-secondary);
-    color: #FFD700;
   }
   
   .text-wedding-accent {
     color: var(--wedding-accent);
-    color: #8e44ad;
   }
   
   .text-wedding-dark {
     color: var(--wedding-dark);
-    color: #4a235a;
   }
   
   .bg-wedding-primary {
     background-color: var(--wedding-primary);
-    background-color: #e83e8c;
   }
   
   .bg-wedding-secondary {
     background-color: var(--wedding-secondary);
-    background-color: #FFD700;
   }
   
   .bg-wedding-accent {
     background-color: var(--wedding-accent);
-    background-color: #8e44ad;
   }
   
   .bg-wedding-light {
     background-color: var(--wedding-light);
-    background-color: #fff9fb;
   }
   
   .bg-wedding-dark {
     background-color: var(--wedding-dark);
-    background-color: #4a235a;
   }
   
   .border-wedding-secondary {
     border-color: var(--wedding-secondary);
-    border-color: #FFD700;
   }
   
   .gradient-wedding {
@@ -487,4 +470,144 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Additional browser compatibility enhancements */
+/* Safari 14.3 and Chrome 92 specific fixes */
+
+/* Ensure transforms work properly on older browsers */
+.btn-press,
+.hover\:scale-102:hover,
+.zoom-in {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Better animation performance for older browsers */
+.animate-petal-fall,
+.animate-sparkle,
+.animate-fade-in-up,
+.slide-in-from-bottom-2 {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+/* CSS Grid fallbacks for older browsers */
+@supports not (display: grid) {
+  .grid {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .grid-cols-1 > * { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; }
+  .grid-cols-2 > * { -webkit-box-flex: 0; -ms-flex: 0 0 50%; flex: 0 0 50%; }
+  .grid-cols-3 > * { -webkit-box-flex: 0; -ms-flex: 0 0 33.333333%; flex: 0 0 33.333333%; }
+  .grid-cols-4 > * { -webkit-box-flex: 0; -ms-flex: 0 0 25%; flex: 0 0 25%; }
+}
+
+/* Flexbox gap fallbacks */
+@supports not (gap: 1rem) {
+  .gap-1 > * + * { margin-left: 0.25rem; }
+  .gap-2 > * + * { margin-left: 0.5rem; }
+  .gap-3 > * + * { margin-left: 0.75rem; }
+  .gap-4 > * + * { margin-left: 1rem; }
+  .gap-6 > * + * { margin-left: 1.5rem; }
+  .gap-8 > * + * { margin-left: 2rem; }
+}
+
+/* Scroll behavior fallback */
+@supports not (scroll-behavior: smooth) {
+  html {
+    /* Fallback handled by JavaScript polyfill */
+  }
+}
+
+/* Older webkit prefixes for animations */
+@-webkit-keyframes petal-fall {
+  0% {
+    -webkit-transform: translateY(-100vh) rotate(0deg);
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(100vh) rotate(360deg);
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes sparkle {
+  0%, 100% {
+    -webkit-transform: scale(0.8) rotate(0deg);
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    -webkit-transform: scale(1.2) rotate(180deg);
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* Safe area inset fallbacks for older iOS */
+@supports not (padding: env(safe-area-inset-bottom)) {
+  .safe-area-padding {
+    padding-bottom: 20px; /* Fallback for older iOS */
+  }
+  
+  .h-safe-area-inset-bottom {
+    height: 20px; /* Fallback for older iOS */
+  }
+}
+
+/* Custom properties fallback detection and alternatives */
+@supports not (color: var(--color)) {
+  .text-wedding-primary { color: #e83e8c; }
+  .text-wedding-secondary { color: #FFD700; }
+  .text-wedding-accent { color: #8e44ad; }
+  .text-wedding-dark { color: #4a235a; }
+  .bg-wedding-primary { background-color: #e83e8c; }
+  .bg-wedding-secondary { background-color: #FFD700; }
+  .bg-wedding-accent { background-color: #8e44ad; }
+  .bg-wedding-light { background-color: #fff9fb; }
+  .bg-wedding-dark { background-color: #4a235a; }
+  .border-wedding-secondary { border-color: #FFD700; }
+}
+
+/* Touch action fixes for older mobile browsers */
+button,
+[role="button"],
+.btn-press {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* Prevent zoom on input focus in iOS Safari */
+input,
+textarea,
+select {
+  font-size: 16px;
 }

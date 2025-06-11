@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ClientPolyfills from "@/components/ui/ClientPolyfills";
+
+// Import polyfills for older browser compatibility
+import "@/lib/polyfills";
+import "@/lib/browser-compat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -81,59 +82,10 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=yes" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Preload critical CSS variables for older browsers */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            :root {
-              --wedding-primary: #e83e8c;
-              --wedding-secondary: #FFD700;
-              --wedding-accent: #8e44ad;
-              --wedding-light: #fff9fb;
-              --wedding-dark: #4a235a;
-            }
-            
-            /* Fallback for older browsers that don't support CSS custom properties */
-            .bg-wedding-primary { background-color: #e83e8c !important; }
-            .text-wedding-primary { color: #e83e8c !important; }
-            .border-wedding-primary { border-color: #e83e8c !important; }
-            
-            /* Fallback for backdrop-blur */
-            @supports not (backdrop-filter: blur(10px)) {
-              .backdrop-blur-xl {
-                background-color: rgba(255, 255, 255, 0.9) !important;
-              }
-            }
-            
-            /* Fallback for CSS Grid */
-            @supports not (display: grid) {
-              .grid {
-                display: flex !important;
-                flex-wrap: wrap !important;
-              }
-            }
-          `
-        }} />
-        
-        {/* Load polyfills for older browsers */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            if (typeof window !== 'undefined') {
-              // Load polyfills dynamically for older browsers
-              if (!window.Promise || !Array.prototype.includes || !Object.assign) {
-                var script = document.createElement('script');
-                script.src = '/polyfills.js';
-                script.async = true;
-                document.head.appendChild(script);
-              }
-            }
-          `
-        }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-body`}
       >
-        <ClientPolyfills />
         {children}
       </body>
     </html>

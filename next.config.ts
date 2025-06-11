@@ -10,21 +10,23 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  // Browser compatibility configuration
+  // Enhanced browser compatibility with SWC
   compiler: {
-    // Enable SWC for better browser compatibility
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Transpile modules for older browser support
-  transpilePackages: [
-    'lucide-react',
-    '@radix-ui/react-dialog',
-    '@radix-ui/react-navigation-menu',
-    '@radix-ui/react-slot',
-    'class-variance-authority',
-    'clsx',
-    'tailwind-merge'
-  ],
+  webpack: (config, { isServer }) => {
+    // Polyfill node modules for client-side compatibility
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    
+    return config;
+  },
 };
 
 export default nextConfig;
