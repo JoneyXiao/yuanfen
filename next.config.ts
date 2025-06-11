@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  // Browser compatibility configuration
+  compiler: {
+    // Enable SWC for better browser compatibility
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Transpile modules for older browser support
+  transpilePackages: [
+    'lucide-react',
+    '@radix-ui/react-dialog',
+    '@radix-ui/react-navigation-menu',
+    '@radix-ui/react-slot',
+    'class-variance-authority',
+    'clsx',
+    'tailwind-merge'
+  ],
 };
 
 export default nextConfig;

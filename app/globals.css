@@ -67,135 +67,199 @@
   --font-body: 'Inter', 'HarmonyOS Sans SC', sans-serif;
   
   --background: #ffffff;
-  --foreground: var(--wedding-dark);
+  --foreground: #4a235a;
   --card: #ffffff;
-  --card-foreground: var(--wedding-dark);
+  --card-foreground: #4a235a;
   --popover: #ffffff;
-  --popover-foreground: var(--wedding-dark);
-  --primary: var(--wedding-primary);
+  --popover-foreground: #4a235a;
+  --primary: #e83e8c;
   --primary-foreground: #ffffff;
-  --secondary: var(--wedding-secondary);
+  --secondary: #FFD700;
   --secondary-foreground: #ffffff;
-  --muted: var(--wedding-light);
+  --muted: #fff9fb;
   --muted-foreground: #666666;
-  --accent: var(--wedding-accent);
+  --accent: #8e44ad;
   --accent-foreground: #ffffff;
-  --destructive: oklch(0.577 0.245 27.325);
+  /* Fallback for oklch colors */
+  --destructive: #dc2626;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: var(--wedding-primary);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --ring: #e83e8c;
+  /* Fallback chart colors */
+  --chart-1: #3b82f6;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  /* Fallback sidebar colors */
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #1e293b;
+  --sidebar-primary: #334155;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #334155;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #64748b;
+}
+
+/* Support for modern oklch colors where available */
+@supports (color: oklch(0.5 0.2 180)) {
+  :root {
+    --destructive: oklch(0.577 0.245 27.325);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.984 0.003 247.858);
+    --sidebar-foreground: oklch(0.129 0.042 264.695);
+    --sidebar-primary: oklch(0.208 0.042 265.755);
+    --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+    --sidebar-accent: oklch(0.968 0.007 247.896);
+    --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+    --sidebar-border: oklch(0.929 0.013 255.508);
+    --sidebar-ring: oklch(0.704 0.04 256.788);
+  }
 }
 
 .dark {
-  --background: var(--wedding-dark);
+  --background: #4a235a;
   --foreground: #ffffff;
-  --card: var(--wedding-dark);
+  --card: #4a235a;
   --card-foreground: #ffffff;
-  --popover: var(--wedding-dark);
+  --popover: #4a235a;
   --popover-foreground: #ffffff;
-  --primary: var(--wedding-primary);
+  --primary: #e83e8c;
   --primary-foreground: #ffffff;
-  --secondary: var(--wedding-secondary);
+  --secondary: #FFD700;
   --secondary-foreground: #ffffff;
   --muted: #2d1b69;
   --muted-foreground: #cccccc;
-  --accent: var(--wedding-accent);
+  --accent: #8e44ad;
   --accent-foreground: #ffffff;
-  --destructive: oklch(0.704 0.191 22.216);
+  /* Fallback for oklch colors */
+  --destructive: #ef4444;
   --border: #4a235a;
   --input: #4a235a;
-  --ring: var(--wedding-primary);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --ring: #e83e8c;
+  /* Fallback chart colors for dark mode */
+  --chart-1: #6366f1;
+  --chart-2: #22c55e;
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #a855f7;
+}
+
+/* Support for modern oklch colors in dark mode where available */
+@supports (color: oklch(0.5 0.2 180)) {
+  .dark {
+    --destructive: oklch(0.704 0.191 22.216);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.208 0.042 265.755);
+    --sidebar-foreground: oklch(0.984 0.003 247.858);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+    --sidebar-accent: oklch(0.279 0.041 260.031);
+    --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.551 0.027 264.364);
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+    /* Fallback for browsers that don't support outline-ring/50 */
+    outline-color: rgba(232, 62, 140, 0.5);
+  }
+  
+  /* Support modern outline where available */
+  @supports (outline-color: var(--ring)) {
+    * {
+      @apply outline-ring/50;
+    }
   }
   
   html {
     scroll-behavior: smooth;
   }
   
+  /* Fallback for browsers that don't support CSS scroll-behavior */
+  @supports not (scroll-behavior: smooth) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: var(--font-body), 'Inter', 'HarmonyOS Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
   }
   
   .font-header {
-    font-family: var(--font-header);
+    font-family: var(--font-header), 'Noto Serif SC', serif, -apple-system, BlinkMacSystemFont;
   }
   
   .font-body {
-    font-family: var(--font-body);
+    font-family: var(--font-body), 'Inter', 'HarmonyOS Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
 
 @layer utilities {
   .text-wedding-primary {
     color: var(--wedding-primary);
+    /* Fallback for browsers that don't support CSS custom properties */
+    color: #e83e8c;
   }
   
   .text-wedding-secondary {
     color: var(--wedding-secondary);
+    color: #FFD700;
   }
   
   .text-wedding-accent {
     color: var(--wedding-accent);
+    color: #8e44ad;
   }
   
   .text-wedding-dark {
     color: var(--wedding-dark);
+    color: #4a235a;
   }
   
   .bg-wedding-primary {
     background-color: var(--wedding-primary);
+    background-color: #e83e8c;
   }
   
   .bg-wedding-secondary {
     background-color: var(--wedding-secondary);
+    background-color: #FFD700;
   }
   
   .bg-wedding-accent {
     background-color: var(--wedding-accent);
+    background-color: #8e44ad;
   }
   
   .bg-wedding-light {
     background-color: var(--wedding-light);
+    background-color: #fff9fb;
   }
   
   .bg-wedding-dark {
     background-color: var(--wedding-dark);
+    background-color: #4a235a;
   }
   
   .border-wedding-secondary {
     border-color: var(--wedding-secondary);
+    border-color: #FFD700;
   }
   
   .gradient-wedding {
