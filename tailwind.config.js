@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        'header': ['Noto Serif SC', 'serif'],
+        'body': ['Inter', 'HarmonyOS Sans SC', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,21 +57,17 @@ module.exports = {
         },
         // Wedding theme colors
         wedding: {
-          primary: "var(--wedding-primary)",
-          secondary: "var(--wedding-secondary)",
-          accent: "var(--wedding-accent)",
-          light: "var(--wedding-light)",
-          dark: "var(--wedding-dark)",
+          primary: "#e83e8c",
+          secondary: "#FFD700",
+          accent: "#8e44ad",
+          light: "#fff9fb",
+          dark: "#4a235a",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        header: ["var(--font-header)"],
-        body: ["var(--font-body)"],
       },
       keyframes: {
         "accordion-down": {
@@ -79,59 +79,64 @@ module.exports = {
           to: { height: "0" },
         },
         "petal-fall": {
-          "0%": { transform: "translateY(-100vh) rotate(0deg)", opacity: "1" },
-          "100%": { transform: "translateY(100vh) rotate(360deg)", opacity: "0" },
+          '0%': { 
+            transform: 'translateY(-100vh) rotate(0deg)',
+            opacity: '1'
+          },
+          '100%': { 
+            transform: 'translateY(100vh) rotate(360deg)',
+            opacity: '0'
+          }
         },
-        sparkle: {
-          "0%, 100%": { opacity: "0", transform: "scale(0)" },
-          "50%": { opacity: "1", transform: "scale(1)" },
-        },
-        "button-press": {
-          "0%": { transform: "scale(1)" },
-          "50%": { transform: "scale(0.95)" },
-          "100%": { transform: "scale(1)" },
-        },
-        shake: {
-          "0%, 100%": { transform: "translateX(0)" },
-          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-5px)" },
-          "20%, 40%, 60%, 80%": { transform: "translateX(5px)" },
+        "sparkle": {
+          '0%, 100%': { 
+            opacity: '0',
+            transform: 'scale(0)'
+          },
+          '50%': { 
+            opacity: '1',
+            transform: 'scale(1)'
+          }
         },
         "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          '0%': { 
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
         },
         "slide-in-from-bottom": {
-          "0%": { transform: "translateY(100%)" },
-          "100%": { transform: "translateY(0)" },
+          '0%': { 
+            transform: 'translateY(100%)',
+            opacity: '0'
+          },
+          '100%': { 
+            transform: 'translateY(0)',
+            opacity: '1'
+          }
         },
         "zoom-in": {
-          "0%": { opacity: "0", transform: "scale(0.9)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        "pulse-ring": {
-          "0%": { transform: "scale(0.33)", opacity: "1" },
-          "80%, 100%": { transform: "scale(2.33)", opacity: "0" },
+          '0%': { 
+            transform: 'scale(0.8)',
+            opacity: '0'
+          },
+          '100%': { 
+            transform: 'scale(1)',
+            opacity: '1'
+          }
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "petal-fall": "petal-fall 3s linear infinite",
-        sparkle: "sparkle 1.5s ease-in-out infinite",
-        "button-press": "button-press 0.2s ease-in-out",
-        shake: "shake 0.5s ease-in-out",
+        "petal-fall": "petal-fall 6s linear infinite",
+        "sparkle": "sparkle 2s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out",
-        "slide-in-from-bottom": "slide-in-from-bottom 0.3s ease-out",
+        "slide-in-from-bottom": "slide-in-from-bottom 0.5s ease-out",
         "zoom-in": "zoom-in 0.3s ease-out",
-        "pulse-ring": "pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite",
-      },
-      backdropBlur: {
-        'xl': '24px',
-        'lg': '16px',
-        'md': '12px',
-      },
-      boxShadow: {
-        '3xl': '0 35px 60px -12px rgba(0, 0, 0, 0.25)',
       },
     },
   },

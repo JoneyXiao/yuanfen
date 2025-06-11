@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Serif_SC } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const notoSerifSC = Noto_Serif_SC({
-  variable: "--font-noto-serif-sc",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "600"],
 });
 
 export const metadata: Metadata = {
@@ -81,7 +80,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
-        className={`${inter.variable} ${notoSerifSC.variable} antialiased font-body`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-body`}
       >
         {children}
       </body>
