@@ -10,23 +10,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  // Enhanced browser compatibility with SWC
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-  webpack: (config, { isServer }) => {
-    // Polyfill node modules for client-side compatibility
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    
-    return config;
-  },
 };
 
 export default nextConfig;

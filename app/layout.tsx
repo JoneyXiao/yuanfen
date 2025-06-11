@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-// Import polyfills for older browser compatibility
 import "@/lib/polyfills";
-import "@/lib/browser-compat";
+import BrowserCompatibilityAlert from "@/components/BrowserCompatibilityAlert";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,6 +84,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-body`}
       >
+        <BrowserCompatibilityAlert />
         {children}
       </body>
     </html>
