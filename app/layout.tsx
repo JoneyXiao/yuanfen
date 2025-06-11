@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
-import BrowserCheck from "./browser-check";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSerifSC = Noto_Serif_SC({
+  variable: "--font-noto-serif-sc",
   subsets: ["latin"],
+  weight: ["300", "400", "600"],
 });
 
 export const metadata: Metadata = {
@@ -81,9 +81,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-body`}
+        className={`${inter.variable} ${notoSerifSC.variable} antialiased font-body`}
       >
-        <BrowserCheck />
         {children}
       </body>
     </html>
