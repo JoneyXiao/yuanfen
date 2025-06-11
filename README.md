@@ -29,24 +29,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Browser Compatibility
-
-This project is built with Next.js 15 and React 19, which require modern browser features. For the best experience, please use:
-
-- **Chrome 95+** or newer
-- **Firefox 67+** or newer  
-- **Safari 15+** or newer
-- **Edge 95+** or newer
-- **Opera 81+** or newer
-
-### Compatibility Notes
-
-- **React 19**: Requires modern JavaScript features (ES2020+)
-- **Tailwind CSS v4**: Uses modern CSS features
-- **Next.js 15**: Optimized for modern browsers
-
-Users with older browsers will see a compatibility warning with upgrade recommendations.
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
