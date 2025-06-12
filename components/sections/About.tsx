@@ -82,21 +82,24 @@ const About = () => {
       position: "首席婚礼策划师",
       experience: "10年经验",
       specialty: "户外婚礼策划",
-      avatar: `${prefix}/avatar-001.jpg`
+      // avatar: `${prefix}/avatar-001.jpg`
+      avatar: "https://img.picui.cn/free/2025/06/12/684a905047169.jpg"
     },
     {
       name: "王浩然",
       position: "创意总监",
       experience: "8年经验", 
       specialty: "主题婚礼设计",
-      avatar: `${prefix}/avatar-002.jpg`
+      // avatar: `${prefix}/avatar-002.jpg`
+      avatar: "https://img.picui.cn/free/2025/06/12/684a905002511.jpg"
     },
     {
       name: "张美琳",
       position: "客户服务经理",
       experience: "6年经验",
       specialty: "客户关系管理",
-      avatar: `${prefix}/avatar-003.jpg`
+      // avatar: `${prefix}/avatar-003.jpg`
+      avatar: "https://img.picui.cn/free/2025/06/12/684a905007fda.jpg"
     }
   ];
 

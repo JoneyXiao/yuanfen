@@ -22,40 +22,40 @@ const Gallery = () => {
 
   const galleryItems = useMemo(() => [
     {
-      image: `${prefix}/garden-wedding.jpg`,
-      fallbackImage: `${prefix}/garden-wedding.avif`,
+      image: "https://img.picui.cn/free/2025/06/12/684a9050ae79a.jpg",
+      fallbackImage: `${prefix}/garden-wedding.jpg`,
       title: "Garden Wedding",
       date: "2023.05.20",
       description: "户外花园主题婚礼",
       details: "在绿意盎然的花园中举办的浪漫婚礼，鲜花装饰与自然景观完美融合"
     },
     {
-      image: `${prefix}/wedding-ring.jpg`,
-      fallbackImage: `${prefix}/wedding-ring.avif`,
+      image: "https://img.picui.cn/free/2025/06/12/684a917683ca1.jpg",
+      fallbackImage: `${prefix}/wedding-ring.jpg`,
       title: "Church Ceremony",
       date: "2023.04.15",
       description: "神圣教堂婚礼仪式",
       details: "庄严神圣的教堂婚礼，见证新人在上帝面前许下永恒誓言"
     },
     {
-      image: `${prefix}/beach-wedding.jpg`,
-      fallbackImage: `${prefix}/beach-wedding.avif`,
+      image: "https://img.picui.cn/free/2025/06/12/684a9050780c5.jpg",
+      fallbackImage: `${prefix}/beach-wedding.jpg`,
       title: "Beach Wedding",
       date: "2023.06.08",
       description: "浪漫海滩婚礼",
       details: "在碧海蓝天下举行的海滨婚礼，浪漫与自由并存的完美仪式"
     },
     {
-      image: `${prefix}/grand-ballroom-wedding.jpeg`,
-      fallbackImage: `${prefix}/grand-ballroom-wedding.avif`,
+      image: "https://img.picui.cn/free/2025/06/12/684a917689a96.jpeg",
+      fallbackImage: `${prefix}/grand-ballroom-wedding.jpeg`,
       title: "Grand Ballroom",
       date: "2023.03.25",
       description: "豪华酒店宴会厅",
       details: "奢华典雅的宴会厅婚礼，金碧辉煌的装饰营造完美仪式感"
     },
     {
-      image: `${prefix}/villa-wedding.jpg`,
-      fallbackImage: `${prefix}/villa-wedding.avif`,
+      image: "https://img.picui.cn/free/2025/06/12/684a917697e12.jpg",
+      fallbackImage: `${prefix}/villa-wedding.jpg`,
       title: "Villa Wedding",
       date: "2023.07.12",
       description: "别墅庭院婚礼",
