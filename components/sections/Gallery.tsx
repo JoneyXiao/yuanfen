@@ -22,16 +22,16 @@ const Gallery = () => {
 
   const galleryItems = useMemo(() => [
     {
-      image: `${prefix}/garden-wedding.avif`,
-      fallbackImage: `${prefix}/garden-wedding.jpg`,
+      image: `${prefix}/garden-wedding.jpg`,
+      fallbackImage: `${prefix}/garden-wedding.avif`,
       title: "Garden Wedding",
       date: "2023.05.20",
       description: "户外花园主题婚礼",
       details: "在绿意盎然的花园中举办的浪漫婚礼，鲜花装饰与自然景观完美融合"
     },
     {
-      image: `${prefix}/wedding-ring.avif`,
-      fallbackImage: `${prefix}/wedding-ring.jpg`,
+      image: `${prefix}/wedding-ring.jpg`,
+      fallbackImage: `${prefix}/wedding-ring.avif`,
       title: "Church Ceremony",
       date: "2023.04.15",
       description: "神圣教堂婚礼仪式",
@@ -39,7 +39,7 @@ const Gallery = () => {
     },
     {
       image: `${prefix}/beach-wedding.jpg`,
-      fallbackImage: `${prefix}/beach-wedding.jpg`,
+      fallbackImage: `${prefix}/beach-wedding.avif`,
       title: "Beach Wedding",
       date: "2023.06.08",
       description: "浪漫海滩婚礼",
@@ -47,15 +47,15 @@ const Gallery = () => {
     },
     {
       image: `${prefix}/grand-ballroom-wedding.jpeg`,
-      fallbackImage: `${prefix}/grand-ballroom-wedding.jpeg`,
+      fallbackImage: `${prefix}/grand-ballroom-wedding.avif`,
       title: "Grand Ballroom",
       date: "2023.03.25",
       description: "豪华酒店宴会厅",
       details: "奢华典雅的宴会厅婚礼，金碧辉煌的装饰营造完美仪式感"
     },
     {
-      image: `${prefix}/villa-wedding.avif`,
-      fallbackImage: `${prefix}/villa-wedding.jpg`,
+      image: `${prefix}/villa-wedding.jpg`,
+      fallbackImage: `${prefix}/villa-wedding.avif`,
       title: "Villa Wedding",
       date: "2023.07.12",
       description: "别墅庭院婚礼",
@@ -63,7 +63,7 @@ const Gallery = () => {
     },
     {
       image: `${prefix}/traditional-chinese-wedding.jpeg`,
-      fallbackImage: `${prefix}/traditional-chinese-wedding.jpeg`,
+      fallbackImage: `${prefix}/traditional-chinese-wedding.avif`,
       title: "Traditional Chinese",
       date: "2023.08.18",
       description: "中式传统婚礼",

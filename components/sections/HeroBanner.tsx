@@ -12,7 +12,7 @@ const HeroBanner = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   // const [imageSrc, setImageSrc] = useState(`${prefix}/home-bg.avif`);
-  const [imageSrc, setImageSrc] = useState("https://img.picui.cn/free/2025/06/12/684a6120a9055.jpg");
+  const [imageSrc, setImageSrc] = useState("https://img.picui.cn/free/2025/06/12/684a6b175cb54.jpg");
   const [isClient, setIsClient] = useState(false);
   const [textAnimated, setTextAnimated] = useState(false);
 

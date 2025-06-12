@@ -82,21 +82,21 @@ const About = () => {
       position: "首席婚礼策划师",
       experience: "10年经验",
       specialty: "户外婚礼策划",
-      avatar: `${prefix}/avatar-001.avif`
+      avatar: `${prefix}/avatar-001.jpg`
     },
     {
       name: "王浩然",
       position: "创意总监",
       experience: "8年经验", 
       specialty: "主题婚礼设计",
-      avatar: `${prefix}/avatar-002.avif`
+      avatar: `${prefix}/avatar-002.jpg`
     },
     {
       name: "张美琳",
       position: "客户服务经理",
       experience: "6年经验",
       specialty: "客户关系管理",
-      avatar: `${prefix}/avatar-003.avif`
+      avatar: `${prefix}/avatar-003.jpg`
     }
   ];
 
