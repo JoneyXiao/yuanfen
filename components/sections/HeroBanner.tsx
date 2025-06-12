@@ -54,12 +54,17 @@ const HeroBanner = () => {
           src={imageSrc}
           alt="Romantic Wedding Scene - Hero Background"
           fill
-          priority
+          priority={true}
+          quality={75}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           className={cn(
             "object-cover transition-all duration-1000",
             imageLoaded && !imageError ? "opacity-100 scale-100" : "opacity-0 scale-105"
           )}
-          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center'
+          }}
           onLoad={() => {
             setImageLoaded(true);
             setImageError(false);
@@ -69,13 +74,15 @@ const HeroBanner = () => {
               // Try fallback to local image
               setImageSrc(`${prefix}/home-bg.jpg`);
               setImageError(false);
-              console.warn('External image failed to load, trying local fallback');
+              console.warn('External images failed, trying local fallback');
             } else {
               setImageError(true);
               setImageLoaded(false);
-              console.error('Failed to load hero background image');
+              console.error('All image sources failed to load');
             }
           }}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWIzssIyctJT06KTU/Nj0/OC4sLTP/2wBDAQcHBwoIChMKChMzKCUoMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />
         {/* Fallback background color in case image fails to load */}
         {imageError && (
