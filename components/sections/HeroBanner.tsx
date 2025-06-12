@@ -11,7 +11,8 @@ import prefix from "@/lib/prefix";
 const HeroBanner = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState(`${prefix}/home-bg.avif`);
+  // const [imageSrc, setImageSrc] = useState(`${prefix}/home-bg.avif`);
+  const [imageSrc, setImageSrc] = useState("https://img.picui.cn/free/2025/06/12/684a6120a9055.jpg");
   const [isClient, setIsClient] = useState(false);
   const [textAnimated, setTextAnimated] = useState(false);
 
@@ -66,15 +67,15 @@ const HeroBanner = () => {
             setImageError(false);
           }}
           onError={() => {
-            if (imageSrc === `${prefix}/home-bg.avif`) {
+            if (imageSrc.includes("img.picui.cn")) {
               // Try fallback to JPEG
               setImageSrc(`${prefix}/home-bg.jpg`);
               setImageError(false);
-              console.warn('AVIF image failed to load, trying JPEG fallback');
+              console.warn('picui.cn JPEG image failed to load, trying JPEG fallback');
             } else {
               setImageError(true);
               setImageLoaded(false);
-              console.error('Failed to load hero background image (both AVIF and JPEG)');
+              console.error('Failed to load hero background image (both picui.cn JPEG and JPEG fallback)');
             }
           }}
           placeholder="blur"
