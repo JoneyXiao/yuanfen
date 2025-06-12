@@ -409,10 +409,16 @@ const ContactForm = () => {
                       </div>
                     </Button>
 
-                    <p className="text-sm text-gray-500 text-center flex items-center justify-center gap-2 pt-2">
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      提交即表示您同意我们的隐私政策，我们承诺保护您的个人信息
-                    </p>
+                    <div className="pt-1 md:pt-3 px-2">
+                      <p className="text-xs text-gray-500 text-center leading-relaxed">
+                        <span className="inline-flex items-start gap-1.5 justify-center flex-wrap">
+                          <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0 hidden md:block" />
+                          <span className="inline-block text-center sm:text-left">
+                            提交即表示您同意我们的隐私政策，我们承诺保护您的个人信息
+                          </span>
+                        </span>
+                      </p>
+                    </div>
                   </form>
                 )}
               </CardContent>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Heart, Sparkles, Star, HandHeart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PhoneIcon } from "@/components/ui/icons/iconify-icons";
 import prefix from "@/lib/prefix";
@@ -201,13 +201,14 @@ const HeroBanner = () => {
                 <PhoneIcon className="w-5 h-5" />
                 138-0013-8000
               </a>
-              <Button
+              <a
                 onClick={scrollToServices}
-                variant="outline"
-                className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 font-medium px-6 py-4 rounded-full min-h-[56px]"
+                className="flex items-center justify-center gap-2 backdrop-blur-sm border border-white/30 text-white hover:text-wedding-primary hover:scale-105 transition-all duration-300 font-semibold px-6 py-4 text-base rounded-full min-h-[56px]"
               >
+                <HandHeart className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                 查看服务
-              </Button>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
             </div>
           </div>
 

@@ -245,21 +245,21 @@ const Services = () => {
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               我们的专业团队随时为您提供详细的服务介绍和定制化方案建议
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <a 
                 href="tel:13800138000"
-                className="group bg-gradient-to-r from-wedding-primary to-wedding-accent text-white px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 font-medium flex items-center justify-center gap-2 hover:scale-105"
+                className="group bg-gradient-to-r from-wedding-primary to-wedding-accent text-white px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 font-medium flex items-center justify-center space-x-2 hover:scale-105"
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                立即咨询更多服务
+                <span>立即咨询更多服务</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={scrollToContact}
-                className="group border-2 border-wedding-secondary text-wedding-secondary hover:bg-wedding-secondary hover:text-white px-8 py-4 rounded-full transition-all duration-300 font-medium flex items-center justify-center gap-2 hover:scale-105"
+                className="group border-2 border-wedding-secondary text-wedding-secondary hover:bg-wedding-secondary hover:text-white px-8 py-4 rounded-full transition-all duration-300 font-medium flex items-center justify-center space-x-2 hover:scale-105"
               >
                 <Sparkles className="w-5 h-5" />
-                获取定制方案
+                <span>获取定制方案</span>
               </button>
             </div>
           </div>

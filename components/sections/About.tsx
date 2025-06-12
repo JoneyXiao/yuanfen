@@ -130,7 +130,7 @@ const About = () => {
               我们的故事
             </h3> */}
             <div className="space-y-6 text-gray-600 leading-relaxed">
-              <div className="p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-wedding-primary/10 hover:shadow-lg transition-all duration-300">
+              <div className="p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-wedding-accent/10 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-wedding-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Sparkles className="w-4 h-4 text-wedding-primary" />
@@ -142,7 +142,7 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-wedding-secondary/10 hover:shadow-lg transition-all duration-300">
+              <div className="p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-wedding-accent/10 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-wedding-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Users className="w-4 h-4 text-wedding-secondary" />
@@ -216,7 +216,7 @@ const About = () => {
                   data-index={index}
                   data-achievement-card
                   className={cn(
-                    "text-center hover:shadow-xl transition-all duration-500 group cursor-pointer border-2 hover:border-wedding-primary/30 hover:scale-105",
+                    "text-center hover:shadow-xl transition-all duration-500 group cursor-pointer border-wedding-primary/10 hover:border-wedding-primary/30 hover:scale-105",
                     isVisible ? "animate-fade-in-up opacity-100" : "opacity-0"
                   )}
                   style={{ animationDelay: `${index * 150}ms` }}
@@ -291,7 +291,7 @@ const About = () => {
             {teamMembers.map((member, index) => (
               <Card 
                 key={index} 
-                className="text-center hover:shadow-xl transition-all duration-500 group border-2 hover:border-wedding-secondary/30 hover:scale-105 overflow-hidden"
+                className="text-center hover:shadow-xl transition-all duration-500 group border-wedding-primary/50 hover:border-wedding-primary hover:scale-105 overflow-hidden"
               >
                 <CardContent className="p-6">
                   <div className="relative mb-6">
