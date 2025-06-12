@@ -48,42 +48,48 @@ const HeroBanner = () => {
         </div>
       )} */}
 
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={imageSrc}
-          alt="Romantic Wedding Scene - Hero Background"
-          fill
-          priority={true}
-          quality={75}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-          className={cn(
-            "object-cover transition-all duration-1000",
-            imageLoaded && !imageError ? "opacity-100 scale-100" : "opacity-0 scale-105"
-          )}
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center'
-          }}
-          onLoad={() => {
-            setImageLoaded(true);
-            setImageError(false);
-          }}
-          onError={() => {
-            if (imageSrc.includes("img.picui.cn")) {
-              // Try fallback to local image
-              setImageSrc(`${prefix}/home-bg.jpg`);
+      {/* Background Image - Safari 14.3 Compatible */}
+      <div className="fixed inset-0 -z-10">
+        <div className="relative w-full h-full">
+          <Image
+            src={imageSrc}
+            alt="Romantic Wedding Scene - Hero Background"
+            fill
+            priority={true}
+            quality={90}
+            sizes="100vw"
+            fetchPriority="high"
+            className={cn(
+              "object-cover transition-all duration-1000",
+              imageLoaded && !imageError ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            )}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}
+            onLoad={() => {
+              setImageLoaded(true);
               setImageError(false);
-              console.warn('External images failed, trying local fallback');
-            } else {
-              setImageError(true);
-              setImageLoaded(false);
-              console.error('All image sources failed to load');
-            }
-          }}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWIzssIyctJT06KTU/Nj0/OC4sLTP/2wBDAQcHBwoIChMKChMzKCUoMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-        />
+            }}
+            onError={() => {
+              if (imageSrc.includes("img.picui.cn")) {
+                // Try fallback to JPEG
+                setImageSrc(`${prefix}/home-bg.jpg`);
+                setImageError(false);
+                console.warn('picui.cn JPEG image failed to load, trying JPEG fallback');
+              } else {
+                setImageError(true);
+                setImageLoaded(false);
+                console.error('Failed to load hero background image (both picui.cn JPEG and JPEG fallback)');
+              }
+            }}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWIzssIyctJT06KTU/Nj0/OC4sLTP/2wBDAQcHBwoIChMKChMzKCUoMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+          />
+        </div>
         {/* Fallback background color in case image fails to load */}
         {imageError && (
           <div className="absolute inset-0 bg-gradient-to-br from-wedding-primary via-wedding-secondary to-wedding-primary" />
