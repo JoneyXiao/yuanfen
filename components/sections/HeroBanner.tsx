@@ -54,49 +54,28 @@ const HeroBanner = () => {
           src={imageSrc}
           alt="Romantic Wedding Scene - Hero Background"
           fill
-          priority={true}
-          quality={90}
-          sizes="100vw"
-          fetchPriority="high"
+          priority
           className={cn(
             "object-cover transition-all duration-1000",
             imageLoaded && !imageError ? "opacity-100 scale-100" : "opacity-0 scale-105"
           )}
+          sizes="100vw"
           onLoad={() => {
             setImageLoaded(true);
             setImageError(false);
           }}
           onError={() => {
             if (imageSrc.includes("img.picui.cn")) {
-              // Try fallback to local image first
-              const localImage = `${prefix}/home-bg.jpg`;
-              setImageSrc(localImage);
+              // Try fallback to local image
+              setImageSrc(`${prefix}/home-bg.jpg`);
               setImageError(false);
-              setImageLoaded(false);
-              console.warn('External image failed to load, trying local fallback:', localImage);
-            } else if (imageSrc.includes(`${prefix}/home-bg.jpg`)) {
-              // If local jpg fails, try avif
-              const avifImage = `${prefix}/home-bg.avif`;
-              setImageSrc(avifImage);
-              setImageError(false);
-              setImageLoaded(false);
-              console.warn('Local JPG failed to load, trying AVIF:', avifImage);
-            } else if (imageSrc.includes(`${prefix}/home-bg.avif`)) {
-              // If local avif fails, try reliable external fallback
-              const reliableImage = "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80";
-              setImageSrc(reliableImage);
-              setImageError(false);
-              setImageLoaded(false);
-              console.warn('Local AVIF failed to load, trying reliable external fallback:', reliableImage);
+              console.warn('External image failed to load, trying local fallback');
             } else {
-              // All images failed, show fallback background
               setImageError(true);
               setImageLoaded(false);
-              console.error('All images failed to load, showing fallback background');
+              console.error('Failed to load hero background image');
             }
           }}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWIzssIyctJT06KTU/Nj0/OC4sLTP/2wBDAQcHBwoIChMKChMzKCUoMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />
         {/* Fallback background color in case image fails to load */}
         {imageError && (
