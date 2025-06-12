@@ -68,14 +68,31 @@ const HeroBanner = () => {
           }}
           onError={() => {
             if (imageSrc.includes("img.picui.cn")) {
-              // Try fallback to JPEG
-              setImageSrc(`${prefix}/home-bg.jpg`);
+              // Try fallback to local image first
+              const localImage = `${prefix}/home-bg.jpg`;
+              setImageSrc(localImage);
               setImageError(false);
-              console.warn('picui.cn JPEG image failed to load, trying JPEG fallback');
+              setImageLoaded(false);
+              console.warn('External image failed to load, trying local fallback:', localImage);
+            } else if (imageSrc.includes(`${prefix}/home-bg.jpg`)) {
+              // If local jpg fails, try avif
+              const avifImage = `${prefix}/home-bg.avif`;
+              setImageSrc(avifImage);
+              setImageError(false);
+              setImageLoaded(false);
+              console.warn('Local JPG failed to load, trying AVIF:', avifImage);
+            } else if (imageSrc.includes(`${prefix}/home-bg.avif`)) {
+              // If local avif fails, try reliable external fallback
+              const reliableImage = "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80";
+              setImageSrc(reliableImage);
+              setImageError(false);
+              setImageLoaded(false);
+              console.warn('Local AVIF failed to load, trying reliable external fallback:', reliableImage);
             } else {
+              // All images failed, show fallback background
               setImageError(true);
               setImageLoaded(false);
-              console.error('Failed to load hero background image (both picui.cn JPEG and JPEG fallback)');
+              console.error('All images failed to load, showing fallback background');
             }
           }}
           placeholder="blur"
@@ -83,7 +100,7 @@ const HeroBanner = () => {
         />
         {/* Fallback background color in case image fails to load */}
         {imageError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-300 via-pink-300 to-rose-400" />
+          <div className="absolute inset-0 bg-gradient-to-br from-wedding-primary via-wedding-secondary to-wedding-primary" />
         )}
         {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-transparent" />
