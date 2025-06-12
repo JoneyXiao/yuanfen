@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Heart, Sparkles } from "lucide-react";
+import { Menu, Heart, Sparkles, QrCode } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { YuanfenIcon, PhoneIcon } from "@/components/ui/icons/iconify-icons";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,9 +101,16 @@ const Navbar = () => {
                 )}
               </button>
             ))}
+            <Link 
+              href="/qr-share"
+              className="ml-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 font-medium flex items-center gap-2"
+            >
+              <QrCode className="w-4 h-4" />
+              分享
+            </Link>
             <a 
               href="tel:13800138000"
-              className="ml-4 bg-gradient-to-r from-wedding-primary to-wedding-accent text-white px-6 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 font-medium flex items-center gap-2"
+              className="ml-2 bg-gradient-to-r from-wedding-primary to-wedding-accent text-white px-6 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 font-medium flex items-center gap-2"
             >
               <PhoneIcon className="w-4 h-4" />
               立即咨询
@@ -172,7 +180,15 @@ const Navbar = () => {
                     </div>
                   </nav>
 
-                  <div className="p-6 border-t border-gray-100">
+                  <div className="p-6 border-t border-gray-100 space-y-3">
+                    <Link 
+                      href="/qr-share"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-4 rounded-xl hover:shadow-lg transition-all duration-300 font-medium text-sm"
+                    >
+                      <QrCode className="h-5 w-5" />
+                      分享二维码
+                    </Link>
                     <a 
                       href="tel:13800138000"
                       className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-wedding-primary to-wedding-accent text-white px-6 py-4 rounded-xl hover:shadow-lg transition-all duration-300 font-medium text-sm"
